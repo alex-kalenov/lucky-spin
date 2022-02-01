@@ -6,7 +6,6 @@ const CircleContext = React.createContext({
   winner: null,
   blocked: false,
   round: 0,
-  circleStyle: {},
   setPositions: (array) => {},
   setWinner: () => {}
 });
@@ -16,7 +15,6 @@ export const CircleContextProvider = (props) => {
   const [winner, setStateWinner] = useState(null);
   const [round, setRound] = useState(0);
   const [blocked, setBlocked] = useState(false);
-  const [circleStyle, setCircleStyle] = useState({});
 
   useEffect(() => {
     if (winner !== null) {
@@ -39,8 +37,7 @@ export const CircleContextProvider = (props) => {
     blocked: blocked,
     round,
     setPositions,
-    setWinner,
-    circleStyle
+    setWinner
   };
 
   return (

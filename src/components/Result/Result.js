@@ -5,7 +5,6 @@ import { useContext } from "react";
 import CircleContext from "../../store/circle-context";
 
 const Result = (props) => {
-  console.log("Result rendered");
   const circleCtx = useContext(CircleContext);
 
   return (
