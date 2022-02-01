@@ -1,0 +1,54 @@
+.meta-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.wrapper {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 10s;
+}
+
+.mark {
+  width: 0;
+  height: 0;
+  border-top: none;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid white;
+  position: absolute;
+  bottom: -37px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.triangle {
+  /* transform-origin: 218px 300px; */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-top: 300px solid transparent;
+  /* border-right: 218px solid transparent;
+  border-left: 218px solid transparent; */
+  border-bottom: 300px solid;
+}
+
+.triangle > div {
+  color: white;
+  margin-top: 120px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.do-a-roll {
+  transform: rotate(-504deg);
+}

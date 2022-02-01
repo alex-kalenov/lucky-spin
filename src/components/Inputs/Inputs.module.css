@@ -1,0 +1,29 @@
+/* .wrapper {
+  padding-top: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+} */
+
+.wrapper > span {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.submit {
+  display: block;
+  margin: 30px auto 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+  transition: transform 0.3s;
+}
+
+.submit:hover {
+  transform: scale(1.15);
+}
