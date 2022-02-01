@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from "react";
+import { getRandomInt } from "../helpers/functions";
 
-export const CircleContext = React.createContext({
+const CircleContext = React.createContext({
   positions: [],
   winner: null,
   blocked: false,
-  startAngle: 0,
+  round: 0,
+  circleStyle: {},
   setPositions: (array) => {},
-  setWinner: (winnerIndex, angle) => {}
+  setWinner: () => {}
 });
 
-const CircleContextProvider = (props) => {
+export const CircleContextProvider = (props) => {
   const [positions, setPositions] = useState([]);
   const [winner, setStateWinner] = useState(null);
-  const [startAngle, setStartAngle] = useState(0);
+  const [round, setRound] = useState(0);
   const [blocked, setBlocked] = useState(false);
+  const [circleStyle, setCircleStyle] = useState({});
 
   useEffect(() => {
     if (winner !== null) {
       setTimeout(() => {
         setBlocked(false);
-        setPositions((state) => {
-          return state.map((item, index) => {
-            if (index === winner) return { ...item, winner: true };
-            return item;
-          });
-        });
       }, 10000);
     }
-  }, [winner, startAngle]);
+  }, [winner, round]);
 
-  const setWinner = (winnerIndex, angle) => {
+  const setWinner = () => {
+    const winnerIndex = getRandomInt(positions.length);
+    setBlocked(true);
     setStateWinner(winnerIndex);
-    setStartAngle((state) => state + angle);
+    setRound((state) => state + 1);
   };
 
   const value = {
     positions,
     winner,
-    blocked,
-    startAngle,
+    blocked: blocked,
+    round,
     setPositions,
-    setWinner
+    setWinner,
+    circleStyle
   };
 
   return (
@@ -50,4 +50,4 @@ const CircleContextProvider = (props) => {
   );
 };
 
-export default CircleContextProvider;
+export default CircleContext;

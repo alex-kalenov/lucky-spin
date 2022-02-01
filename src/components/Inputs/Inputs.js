@@ -1,9 +1,11 @@
 import styles from "./Inputs.module.css";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useContext } from "react";
 import Input from "./Input";
 import { getPreparedColor } from "../../helpers/functions";
+import CircleContext from "../../store/circle-context";
 
 const Inputs = (props) => {
+  const circleCtx = useContext(CircleContext);
   const [localPos, setLocalPos] = useState([]);
   const [inputs, setInputs] = useState([]);
 
@@ -11,8 +13,7 @@ const Inputs = (props) => {
     if (edited) {
       setLocalPos((state) =>
         state.map((item, index) => {
-          if (index === numb - 1)
-            return { text: pos, color: item.color, winner: false };
+          if (index === numb - 1) return { text: pos, color: item.color };
           return item;
         })
       );
@@ -21,8 +22,7 @@ const Inputs = (props) => {
     setLocalPos((state) =>
       state.concat({
         text: pos,
-        color: getPreparedColor(state.length),
-        winner: false
+        color: getPreparedColor(state.length)
       })
     );
     setInputs((state) => {
@@ -38,8 +38,7 @@ const Inputs = (props) => {
 
   const approvePositions = (event) => {
     event.preventDefault();
-
-    props.setPositions(localPos);
+    circleCtx.setPositions(localPos);
   };
 
   useEffect(() => {

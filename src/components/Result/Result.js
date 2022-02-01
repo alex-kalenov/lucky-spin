@@ -1,22 +1,22 @@
 import Circle from "./Circle";
 import Positions from "./Positions";
 import styles from "./Result.module.css";
+import { useContext } from "react";
+import CircleContext from "../../store/circle-context";
 
 const Result = (props) => {
-  const { positions, winner, round, blocked, setBlocked } = props;
-
-  const setWinnerHandler = () => {
-    setBlocked(true);
-    props.setWinner();
-  };
+  console.log("Result rendered");
+  const circleCtx = useContext(CircleContext);
 
   return (
     <div className={styles.wrapper}>
-      <Circle positions={positions} winner={winner} round={round} />
       <div>
-        {!blocked && <button onClick={setWinnerHandler}>ПУСК</button>}
-        <Positions />
+        <Circle />
+        {!circleCtx.blocked && (
+          <button onClick={circleCtx.setWinner}>ПУСК</button>
+        )}
       </div>
+      <Positions />
     </div>
   );
 };

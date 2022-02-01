@@ -1,19 +1,23 @@
 import styles from "./Circle.module.css";
 import { getTanDeg } from "../../helpers/functions";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import CircleContext from "../../store/circle-context";
 
 const Circle = (props) => {
-  const { positions, winner, round } = props;
+  // console.log("Circle rendered");
+  const circleCtx = useContext(CircleContext);
+  const { positions, winner, round } = circleCtx;
   const [circleStyle, setCircleStyle] = useState({});
 
   const angle = 360 / positions.length;
   const borderLength = 300 * getTanDeg(angle / 2);
   const borderRule = `${borderLength}px solid transparent`;
   useEffect(() => {
-    if (winner !== null)
+    if (winner !== null) {
       setCircleStyle({
-        transform: `rotate(-${angle * winner + 360 * round}deg)`
+        transform: `rotate(-${angle * winner + round * 360}deg)`
       });
+    }
   }, [winner, angle, round]);
 
   const sectors = positions.map((item, index) => {
