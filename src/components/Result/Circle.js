@@ -31,10 +31,10 @@ const Circle = (props) => {
   const sectors = positions.map((item, index) => {
     const style = {
       transform: `translateX(-50%) rotate(${angle * index}deg)`,
-      borderBottom: `${borderLength}px solid ${item.color}`,
+      borderBottom: `${circleSize / 2}px solid ${item.color}`,
       borderRight: borderRule,
       borderLeft: borderRule,
-      borderTop: borderRule
+      borderTop: `${circleSize / 2}px solid transparent`
     };
 
     return (

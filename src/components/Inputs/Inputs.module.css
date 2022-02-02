@@ -27,3 +27,9 @@
 .submit:hover {
   transform: scale(1.15);
 }
+
+@media screen and (max-width: 575px) {
+  .wrapper > span {
+    line-height: 1;
+  }
+}

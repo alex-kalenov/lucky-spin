@@ -13,8 +13,8 @@ const CircleContext = React.createContext({
 const DUMMY_POS = [
   { text: "Понедельник", color: "#4b8fb1" },
   { text: "Вторник", color: "#f4755c" },
-  { text: "Среда", color: "#64c492" },
-  { text: "Любой другой день недели", color: "#dfa388" }
+  { text: "Среда", color: "#64c492" }
+  // { text: "Любой другой день недели", color: "#dfa388" }
 ];
 
 export const CircleContextProvider = (props) => {

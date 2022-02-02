@@ -45,10 +45,6 @@
   transform: translateX(-50%);
 }
 
-.do-a-roll {
-  transform: rotate(-504deg);
-}
-
 @media screen and (max-width: 1199px) {
   .triangle > div {
     margin-top: 85px;

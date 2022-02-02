@@ -9,6 +9,7 @@
 
 .wrapper input {
   width: 250px;
+  background-color: white;
 }
 
 .wrapper > button {
@@ -17,4 +18,25 @@
   color: white;
   border: 2px solid white;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 575px) {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .wrapper label,
+  .wrapper input,
+  .wrapper > button {
+    flex-basis: 100%;
+  }
+
+  .wrapper label {
+    margin: 0;
+  }
+
+  .wrapper > button {
+    margin: 10px 0 0;
+  }
 }
