@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  transition: opacity 0.3s;
+}
+
+.color {
+  border-radius: 5px;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.wrapper span {
+  margin-left: 15px;
+}
+
+.disabled {
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 575px) {
+  .wrapper {
+    width: 290px;
+    margin: 10px auto;
+  }
+}

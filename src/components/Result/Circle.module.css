@@ -5,11 +5,12 @@
 
 .wrapper {
   position: relative;
-  width: 600px;
-  height: 600px;
+  /* width: 600px;
+  height: 600px; */
   border-radius: 50%;
   overflow: hidden;
   transition: transform 10s;
+  margin: 0 auto;
 }
 
 .mark {
@@ -26,17 +27,12 @@
 }
 
 .triangle {
-  /* transform-origin: 218px 300px; */
   position: absolute;
   top: 0;
   left: 50%;
   width: 0;
   height: 0;
   background-color: transparent;
-  border-top: 300px solid transparent;
-  /* border-right: 218px solid transparent;
-  border-left: 218px solid transparent; */
-  border-bottom: 300px solid;
 }
 
 .triangle > div {
@@ -51,4 +47,22 @@
 
 .do-a-roll {
   transform: rotate(-504deg);
+}
+
+@media screen and (max-width: 1199px) {
+  .triangle > div {
+    margin-top: 85px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .triangle > div {
+    margin-top: 65px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .meta-wrapper {
+    flex-basis: 100%;
+  }
 }

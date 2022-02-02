@@ -10,6 +10,13 @@ const CircleContext = React.createContext({
   setWinner: () => {}
 });
 
+const DUMMY_POS = [
+  { text: "Понедельник", color: "#4b8fb1" },
+  { text: "Вторник", color: "#f4755c" },
+  { text: "Среда", color: "#64c492" },
+  { text: "Любой другой день недели", color: "#dfa388" }
+];
+
 export const CircleContextProvider = (props) => {
   const [positions, setPositions] = useState([]);
   const [winner, setStateWinner] = useState(null);
@@ -25,6 +32,7 @@ export const CircleContextProvider = (props) => {
   }, [winner, round]);
 
   const setWinner = () => {
+    if (blocked) return;
     const winnerIndex = getRandomInt(positions.length);
     setBlocked(true);
     setStateWinner(winnerIndex);

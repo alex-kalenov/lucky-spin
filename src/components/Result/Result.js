@@ -7,15 +7,17 @@ import CircleContext from "../../store/circle-context";
 const Result = (props) => {
   const circleCtx = useContext(CircleContext);
 
+  const buttonClass = !circleCtx.blocked ? "" : styles.blocked;
+
   return (
     <div className={styles.wrapper}>
-      <div>
-        <Circle />
-        {!circleCtx.blocked && (
-          <button onClick={circleCtx.setWinner}>ПУСК</button>
-        )}
+      <Circle />
+      <div className={styles["rest"]}>
+        <button onClick={circleCtx.setWinner} className={buttonClass}>
+          ПУСК
+        </button>
+        <Positions />
       </div>
-      <Positions />
     </div>
   );
 };
